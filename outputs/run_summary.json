@@ -1,0 +1,111 @@
+{
+  "run_id": "RUN-20261121T184229",
+  "llm": "mock-rules-v1",
+  "retriever": "tfidf",
+  "statements": [
+    {
+      "account_id": "NOS-EUR-002",
+      "statement_no": "302/1",
+      "lines": 48,
+      "opening": 12300000.0,
+      "closing": 16299517.07,
+      "balance_proof_ok": true
+    },
+    {
+      "account_id": "NOS-GBP-003",
+      "statement_no": "303/1",
+      "lines": 48,
+      "opening": 6780000.0,
+      "closing": 18227411.68,
+      "balance_proof_ok": true
+    },
+    {
+      "account_id": "NOS-USD-001",
+      "statement_no": "301/1",
+      "lines": 48,
+      "opening": 25450000.0,
+      "closing": 31788606.16,
+      "balance_proof_ok": true
+    }
+  ],
+  "data_quality": {
+    "ledger_rows": 138,
+    "ledger_null_refs": 0,
+    "ledger_non_positive_amounts": 0,
+    "unknown_accounts": []
+  },
+  "matching": {
+    "matched": 129,
+    "tolerance_matches": 3,
+    "fuzzy_matches": 3,
+    "paired_breaks": 3,
+    "ledger_only": 6,
+    "statement_only": 12
+  },
+  "auto_match_rate": 0.9149,
+  "breaks": 24,
+  "by_decision": {
+    "MAKER_PROPOSAL": 18,
+    "ESCALATE": 3,
+    "AUTO_RESOLVE": 3
+  },
+  "by_category": {
+    "TIMING_DIFFERENCE": 3,
+    "DUPLICATE_POSTING": 3,
+    "BANK_CHARGES": 3,
+    "UNIDENTIFIED_RECEIPT": 3,
+    "INTEREST": 3,
+    "SUSPICIOUS": 3,
+    "AMOUNT_MISMATCH": 3,
+    "ROUNDING_FX_DIFFERENCE": 3
+  },
+  "evaluation": {
+    "labelled_breaks": 24,
+    "accuracy": 1.0,
+    "coverage": 1.0,
+    "suspicious_escalation_rate": 1.0,
+    "unlabelled_breaks": 0,
+    "per_category": {
+      "AMOUNT_MISMATCH": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 3
+      },
+      "BANK_CHARGES": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 3
+      },
+      "DUPLICATE_POSTING": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 3
+      },
+      "INTEREST": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 3
+      },
+      "ROUNDING_FX_DIFFERENCE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 3
+      },
+      "SUSPICIOUS": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 3
+      },
+      "TIMING_DIFFERENCE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 3
+      },
+      "UNIDENTIFIED_RECEIPT": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 3
+      }
+    }
+  }
+}

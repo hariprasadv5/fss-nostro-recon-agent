@@ -1,0 +1,4 @@
+account_id,currency,correspondent,bic,their_account_no,business_line
+NOS-USD-001,USD,Citibank N.A. New York,CITIUS33XXX,36001234,FSS
+NOS-EUR-002,EUR,Deutsche Bank AG Frankfurt,DEUTDEFFXXX,100987654,FSS
+NOS-GBP-003,GBP,Barclays Bank PLC London,BARCGB22XXX,20445566,FSS

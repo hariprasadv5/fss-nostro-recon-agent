@@ -1,0 +1,3 @@
+:20:Q-003-BARC96911784
+:21:URGENT-PAY
+:79:We have no record of instructing your debit of GBP 1,672,391.84 value 2026-11-20, your reference BARC96911784. Please provide the underlying instruction and arrange immediate recall/reversal pending investigation.

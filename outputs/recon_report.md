@@ -1,6 +1,6 @@
 # Nostro Reconciliation Report - FSS (DUMMY DATA)
 
-Run: RUN-20261121T184229  |  LLM: mock-rules-v1  |  Retriever: tfidf
+Run: RUN-20261126T100643  |  LLM: mock-rules-v1  |  Retriever: chroma
 
 ## Statement controls
 

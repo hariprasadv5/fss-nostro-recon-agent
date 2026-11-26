@@ -1,7 +1,7 @@
 {
-  "run_id": "RUN-20261121T184229",
+  "run_id": "RUN-20261126T100643",
   "llm": "mock-rules-v1",
-  "retriever": "tfidf",
+  "retriever": "chroma",
   "statements": [
     {
       "account_id": "NOS-EUR-002",

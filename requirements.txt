@@ -11,3 +11,9 @@ openai>=1.40           # Investigation Agent LLM
 chromadb>=0.5          # vector store for the SOP knowledge base (RAG)
 langsmith>=0.1         # tracing and evaluation
 streamlit>=1.35        # checker dashboard (app.py)
+
+# REST API (src/recon_agent/api.py)
+fastapi>=0.110
+uvicorn[standard]>=0.29  # web server that runs the API
+requests>=2.31         # calling APIs from Python (examples/call_api.py)
+httpx>=0.27            # used by FastAPI's TestClient in tests/test_api.py

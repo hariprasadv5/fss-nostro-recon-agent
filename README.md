@@ -51,6 +51,34 @@ pytest -q                                              # unit + acceptance tests
 TF-IDF retriever stands in for ChromaDB. Add `OPENAI_API_KEY` to `.env` and install `openai` and `chromadb` to
 switch to the live LLM and the vector store. Add `LANGSMITH_API_KEY` to trace every agent step in LangSmith.
 
+## REST API (FastAPI)
+
+The agent is also available as a REST API, so other systems (a SWIFT gateway, a case-management tool, a
+dashboard) can call it.
+
+```bash
+# Windows: run_api.bat     macOS/Linux: ./run_api.sh
+uvicorn recon_agent.api:app --reload          # with PYTHONPATH=src
+```
+
+Open **http://127.0.0.1:8000/docs** to see and try every endpoint in the browser.
+
+| Method | Endpoint | What it does |
+|---|---|---|
+| GET | `/health` | Is the service up? |
+| POST | `/reconcile` | Run the agentic reconciliation |
+| GET | `/summary` | Figures from the latest run |
+| GET | `/breaks?decision=ESCALATE` | List breaks, filtered by category / decision / account |
+| GET | `/breaks/{break_id}` | One break with the agent's reasoning and SOP citations |
+| GET | `/approvals` | The four-eyes checker queue |
+| POST | `/approvals/{break_id}` | Checker approves or rejects (the AI can never approve itself) |
+| POST | `/webhooks/statement` | Another system pushes a new MT950; validated before it is stored |
+| GET | `/kb/search?q=...` | Search the SOP knowledge base |
+| GET | `/audit/verify` | Check the tamper-evident audit chain |
+
+`examples/call_api.py` calls every endpoint with the Python `requests` library. See
+[docs/API_GUIDE.md](docs/API_GUIDE.md) for REST, SOAP, webhooks, `requests` and FastAPI explained.
+
 ## Dummy data
 
 `data/generate_dummy_data.py` creates three Nostro accounts (USD at Citibank NY, EUR at Deutsche Bank Frankfurt,
@@ -97,11 +125,14 @@ src/recon_agent/
   audit.py         hash-chained audit log
   evaluation.py    accuracy / recall / coverage vs ground truth
   cli.py           command line
+  service.py       API actions as plain functions (testable without a server)
+  api.py           FastAPI REST API and webhook
 knowledge_base/    dummy SOPs, control policy, MT199 templates, past cases
 data/              dummy data generator and generated files
 docs/              AI requirements and architecture
 tests/             unit and acceptance tests
 app.py             Streamlit checker dashboard
+examples/          call_api.py: calling the API with requests
 ```
 
 ## Notes
